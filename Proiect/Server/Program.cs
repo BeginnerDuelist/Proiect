@@ -12,7 +12,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<StudentDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<StudentDbContext>(options => 
+{
+     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 var app = builder.Build();
 
 app.UseSwaggerUI();
